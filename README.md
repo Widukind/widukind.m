@@ -1,4 +1,4 @@
-# Widykind for Matlab
+# Widukind for Matlab
 
 # Installation
 
