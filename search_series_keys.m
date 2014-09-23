@@ -1,6 +1,8 @@
 function res=search_series_keys(provider,dataset_code,varargin)
 
-query = ['http://localhost:8000/eurostat/dataset/' dataset_code '/' ...
+%query = ['http://localhost:8000/eurostat/dataset/' dataset_code '/' ...
+%                    'values'];
+query = ['http://www.ceres.cepremap.org/' provider '/dataset/' dataset_code '/' ...
                     'values'];
 if length(varargin)
     query = [query '?'];

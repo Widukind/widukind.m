@@ -1,6 +1,8 @@
 function s = get_series_by_key(provider,dataset_code,key)
 
-g = fromjson(urlread(['http://localhost:8000/' provider '/dataset/' dataset_code '/series/' ...
+%g = fromjson(urlread(['http://localhost:8000/' provider '/dataset/' dataset_code '/series/' ...
+%                    key]));
+g = fromjson(urlread(['http://www.ceres.cepremap.org/' provider '/dataset/' dataset_code '/series/' ...
                     key]));
 
 s.key = key;

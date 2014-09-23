@@ -5,8 +5,8 @@ if nargin < 2
 end
 
 addpath /home/michel/tools/matlab-json
-g = urlread(['http://localhost:8000/' provider '/categories']);
-%g = urlread(['http://ceres.cepremap.org/' provider '/categories']);
+%g = urlread(['http://localhost:8000/' provider '/categories']);
+g = urlread(['http://ceres.cepremap.org/' provider '/categories']);
 g1 = fromjson(g);
 m = 1;
 for i=1:length(g1)
