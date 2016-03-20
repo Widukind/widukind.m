@@ -1,11 +1,28 @@
 function s = get_series_by_key(provider,dataset_code,key)
 
-%g = fromjson(urlread(['http://localhost:8000/' provider '/dataset/' dataset_code '/series/' ...
-%                    key]));
-g = fromjson(urlread(['http://ceres.cepremap.org/' provider '/dataset/' dataset_code '/series/' ...
-                    key]));
+slug = [lower(provider) '-' lower(dataset_code) '-' ...
+        lower(regexprep(key,'[_.&]','-'))];
+
+[reply, status] = urlread(['http://widukind-api.cepremap.org/api/v1/json/series/' ...
+                 slug]);
+
+if status == 0
+    disp([slug ' couldn''t be found'])
+    s = NaN;
+    return
+end
+
+g = fromjson(reply);
 
 s.key = key;
-s.values = str2num(char(g{1}.values));
-s.startDate = g{1}.endDate;
-s.freq = g{1}.dimensions.FREQ;
+s.values = NaN(length(g.data.values));
+for i=1:length(g.data.values)
+    v = str2num(g.data.values{i}.value);
+    if ~isempty(v)
+        s.values(i) = v;
+    end
+end
+s.name = g.data.name;
+s.dimensions = g.data.dimensions;
+s.start_date = ordinal2date(double(g.data.start_date),g.data.frequency);
+
