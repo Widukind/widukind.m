@@ -10,7 +10,7 @@ catch ME
 end
 
 s.key = key;
-s.values = NaN(length(g.data.values));
+s.values = NaN(length(g.data.values),1);
 for i=1:length(g.data.values)
     v = str2num(g.data.values{i}.value);
     if ~isempty(v)
