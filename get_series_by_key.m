@@ -3,16 +3,11 @@ function s = get_series_by_key(provider,dataset_code,key)
 slug = [lower(provider) '-' lower(dataset_code) '-' ...
         lower(regexprep(key,'[_.&]','-'))];
 
-[reply, status] = urlread(['http://widukind-api.cepremap.org/api/v1/json/series/' ...
-                 slug]);
-
-if status == 0
-    disp([slug ' couldn''t be found'])
-    s = NaN;
-    return
+try
+    g = widukind_json_request(['/series/' slug]);
+catch ME
+    rethrow(ME)
 end
-
-g = fromjson(reply);
 
 s.key = key;
 s.values = NaN(length(g.data.values));
