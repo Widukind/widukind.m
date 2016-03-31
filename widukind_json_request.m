@@ -14,7 +14,7 @@ fullrequest = ['http://widukind-api.cepremap.org/api/v1/json' request];
 
 g = fromjson(reply);
 
-if isfield(g,'error') or status == 0
+if isfield(g,'error') || status == 0
     ME = MException('widukind:notFound','%s couldn''t be found', ...
                     fullrequest);
     throw(ME)

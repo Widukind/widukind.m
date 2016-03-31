@@ -11,12 +11,12 @@ switch(freq)
     d.freq = 1;
   case 'Q'
     d.freq = 4;
-    y = floor(ordinal,d.freq) 
+    y = floor(ordinal/d.freq); 
     d.year = y + 1970;
     d.sub = ordinal - d.freq*y;
   case 'M'
     d.freq = 12;
-    y = floor(ordinal,d.freq) 
+    y = floor(ordinal/d.freq); 
     d.year = y + 1970;
     d.sub = ordinal - d.freq*y;
   otherwise
