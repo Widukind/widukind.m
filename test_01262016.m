@@ -1,4 +1,4 @@
-s = get_series_by_key('IMF','WEO', 'NGDP_R.MYS.1');
+s = get_series_by_key('IMF','WEO', 'NGDP-RPCH.MYS.1');
 
 n = length(s.values);
 sd = s.start_date;
