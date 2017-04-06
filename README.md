@@ -1,6 +1,10 @@
-# Widukind for Matlab
+# DB.nomics for Matlab or Octave
 
-This package downloads Widukind series directly in Matlab or Octave
+This package gives the possibility of downloading DB.nomics series in Matlab or Octave.
+
+**`DB.nomics <https://db.nomics.world/>`_ is a database of international macroeconomic data collected on public web servers of statistical offices worldwide.**
+
+*Please ask your questions to the `DB.nomics forum <https://forum.db.nomics.world/>`_.*
 
 # Installation
 
@@ -14,7 +18,7 @@ We add the MEX files for Windows in ./bin. If you use Linux or OS/X, you need to
 
 # Functionalities
 
-This package provides the following 
+This package provides the following
 
 - retrieving a series by key: `s = get_series_by_key(provider,dataset_code,key)`. The series is returned in a Matlab structure:
   - s.name: (string) series name
